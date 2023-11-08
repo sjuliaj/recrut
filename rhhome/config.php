@@ -10,11 +10,11 @@ $conexao = new mysqli($host, $user, $password, $database);
 $pdo = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $password);
     return $pdo;
 
-
+/*
 if (!$conexao) {
     die('Erro ao conectar ao banco de dados: ' . mysqli_connect_error());
 }
 else {
     echo 'Conexão com o banco de dados feita com sucesso!' . '</br>';
-}
+}*/
 ?>

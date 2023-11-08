@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (mysqli_query($conexao, $sql)) {
     $sucesso = "Cadastro da vaga realizado com sucesso!";
-    header('Location: pagina_de_sucesso.php'); // Redirecione para a página de sucesso
+    header('Location: sucessodevaga.php'); // Redirecione para a página de sucesso
   } else {
     $mensagensErro[] = "Erro na inserção da vaga: " . mysqli_error($conexao);
   }

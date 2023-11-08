@@ -18,6 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
   $stmt->execute();
 
+  echo $email;
+  echo $senha;
+
   // Verificar se a consulta retornou algum resultado
   if ($stmt->rowCount() == 1) {
     // Obter a senha criptografada e o IV do banco de dados

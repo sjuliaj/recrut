@@ -1,5 +1,5 @@
 <?php
-include 'config2.php'; // Certifique-se de que o arquivo 'config.php' está corretamente configurado
+include 'config.php'; // Certifique-se de que o arquivo 'config.php' está corretamente configurado
 include 'validarcadempresa.php';
 
 // Cria uma variável para armazenar mensagens de erro

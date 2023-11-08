@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Try - Recrutamento</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
-
-</head>
-
-<body class="bg-dark">
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-	<?php
+<?php
 include 'config.php';
 session_start();
 
@@ -41,88 +22,68 @@ if (isset($_SESSION["cod_empresa"])) {
 // Fechar conexão
 $conexao->close();
 ?>	 
-		
+  
+ 
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Try - Recrutamento</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
-        aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
 
-														 
-									 
-																   
-																																																					  
-														 
-					 
-																			 
-									   
-												  
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try - Recrutamento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+</head>
+<body class="bg-dark">
 
-						
-											 
-																			  
+<link rel="icon" type="image/x-icon" href="favicon.ico">  
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Try - Recrutamento</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+
+                        
+                        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">CONTATO</a> 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">CONTATO</a>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="sobrenós.php">SOBRE NÓS</a>
-          <li class="nav-item">
-																							 
-										
+          <a class="nav-link active" aria-current="page" href="sobrenós.php">SOBRE NÓS</a>
+          <li class="nav-item">  
+          <a class="nav-link active" aria-current="page" href="telavagas.php">CADASTRE UMA VAGA</a>
+          <li class="nav-item">         
 
-          </li>
-          </li>
-        </ul>
-      </div>
-			
-																					
-														
+        </li>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="text-center text-white me-2"><?php echo $nome_emp; ?></div>
+            <a href="logout.php" class="me-5">Logoff</a>
 
-      <div class="text-center text-white me-2">
-        <?php echo $nome_emp; ?>
-				  
-																					  
-			  
-														 
-									 
-      </div>
-      <a href="logoutemp.php" class="me-5">Logoff</a>
-														 
-					 
-																			 
-									   
-												  
+        </div>
+    </nav>
+    
 
-						
-											 
-    </div>
-							   
-																							
-							   
-  </nav>
-									   
 
 </body>
-						 
-	
-
-
-	   
 </html>
 
 
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Try- Recrutamento</title>
-  <style>
-    body {
+ <title>Try- Recrutamento</title>
+ <style>
+   body {
      background-size: cover;
      background-position: center;
      margin: 0;
@@ -420,178 +381,139 @@ $conexao->close();
     font-size: 16px;
     text-align: justify;
 }
-  </style>
+
+ </style>
 
 </head>
-
-<body class="bg-dark">
-  <!--Tela Logado-->
-  <?php if (isset($nome_emp)) { ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Try - Recrutamento </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
-          aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        </div>
-
-
-
-	   
-					   
-				   
-      <?php } ?>
-														 
-							   
-															
-																																																			  
-											   
-			 
-																	 
-							 
-									  
-																									   
-		  
-
-      <img src="imagemhead.jpg" alt="Header Image" style="width: 100%; height: 500px; object-fit: cover; opacity: 0.2;">
-
-      <h1>
-        <div class="solutions-text">SOLUÇÕES DE RH </div>
-
-        <div class="line-white">
-          <hr class="line-white">
-
-      </h1>
-      <div class="solutions-description">
-        Olá Empresa, aqui é o lugar certo para você cadastrar suas vagas e esperarem os candidatos mais qualificados
-        para a sua empresa.
-        Insira suas melhores vagas e garantimos candidatos para seu negócio.
-      </div>
-
-						
-					   
-
-	 
-									   
-																																																 
-    </div>
-    <br>
-
-
+<body class="bg-dark">2
+ <!--Tela Logado-->
+ <?php if(isset($nome_cliente)) { ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Try - Recrutamento </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     </div>
 
 
-    <div class="text">
+  
+  <?php } ?>
+
+<img src="imagemhead.jpg" alt="Header Image" style="width: 100%; height: 500px; object-fit: cover; opacity: 0.2;">
+
+<h1>
+<div class="solutions-text">SOLUÇÕES DE RH </div>
+
+<div class="line-white">
+<hr class="line-white">
+
+</h1>
+    <div class="solutions-description">
+        A RH Try - recrutamento possui habilidades em agendamento de vagas de uma forma diferente. Nosso objetivo é aproximar empresas e candidatos dando mais autonomia para o nosso usuário. 
+    </div>
+
+
+    </div>
+   <br>
 
  
-		 
+   </div>
 
 
-      <br>
+ <div class="text">
  
   
 
-	   
+   <br>
   
-      <p class="text-white">Navegue pelas vagas, se identifique e marque uma entrevista com as nossas empresas
-        parceiras.</p>
-    </div>
-    <br>
+   <p class="text-white">Navegue pelas vagas, se identifique e marque uma entrevista com as nossas empresas parceiras.</p>
+   </div>
+   <br>
 
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="empresabradesco.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">BRADESCO</h5>
-            <p class="card-text"></p>O Bradesco é uma das principais instituições financeiras do Brasil.
-          </div>
-        </div>
-      </div>
-		  
-		
-      <div class="col">
-        <div class="card h-100">
-          <img src="empresacopel.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">COPEL</h5>
-            <p class="card-text"></p> Rede de energia brasileira
-          </div>
-        </div>
-      </div>
-		  
-		
-      <div class="col">
-        <div class="card h-100">
-          <img src="empresajon.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">JON DEERE</h5>
-            <p class="card-text"></p> Empresa de maquinários agrícolas americana
-          </div>
-        </div>
+   <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="empresabradesco.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">BRADESCO</h5>
+        <p class="card-text"></p>O Bradesco é uma das principais instituições financeiras do Brasil.  
       </div>
     </div>
-		
-	  
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="empresacopel.png" class="card-img-top" alt="...">
+      <div class="card-body">  
+        <h5 class="card-title">COPEL</h5>
+        <p class="card-text"></p> Rede de energia brasileira
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="empresajon.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">JON DEERE</h5>
+        <p class="card-text"></p> Empresa de maquinários agrícolas americana
+      </div>
+    </div>
+  </div>
+</div>
 
 
-    <br>
-    <br>
+  <br>
+  <br>
+  <br>
+  
   
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-																													 
-	  
 
 
-      if (isset($_POST["cadastro"])) {
-										   
-																			 
+  <div id="loginAlert" class="alert alert-success alert-dismissible fade show text-light" style="display: none;">
+    Você está logado! Vamos agendar uma vaga?? <a href="vagas.php"> Clique aqui </a> 
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Fechar"></button>
+</div>
 
-        header("Location: teladecadempresa.php");
-        exit;
-      } elseif (isset($_POST["login"])) {
-										   
 
-        header("Location: telaloginemp.php");
-        exit;
-      }
-											  
-		   
+<script>
+    // Verifique se o usuário está logado
+    var nomeCandidato = "<?php echo isset($nome_cand) ? $nome_cand : ''; ?>";
+
+    if (nomeCandidato !== "") {
+        // Se o usuário está logado, mostre o alerta
+        var loginAlert = document.getElementById('loginAlert');
+        loginAlert.style.display = 'block';
+
+        // Adicione um evento de clique ao botão "x" para fechar o alerta
+        var closeButton = loginAlert.querySelector('.btn-close');
+        closeButton.addEventListener('click', function() {
+            loginAlert.style.display = 'none';
+        });
     }
-    ?>
-
-
-
-
-    </script>
-    <!-- Footer Start -->
-    </div>
+</script>
+<!-- Footer Start -->
+</div>
     <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
-      <div class="container d-flex justify-content-center">
-        <div class="row g-5">
-          <div class="col-md-6 text-center text-md-start">
-            <p class="mb-md-0 text-nowrap">&copy; <a class="text-primary" href="#">Try- recrutamento
-              </a>. Todos os
-              Direitos Reservados.</p>
-          </div>
-				  
+        <div class="container d-flex justify-content-center">
+            <div class="row g-5">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0 text-nowrap">&copy; <a class="text-primary" href="#">Try- recrutamento
+                    </a>. Todos os
+                        Direitos Reservados.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <!-- Footer End -->
-
-
+   
+   
 </body>
-
 </html>
 </body>
-
 </html>
