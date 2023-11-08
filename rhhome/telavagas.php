@@ -1,5 +1,20 @@
 <?php
 include 'config.php'; // Certifique-se de que o arquivo 'config.php' está corretamente configurado
+session_start();
+
+// Verificar se o usuário está logado
+if (isset($_SESSION["cod_empresa"])) {
+  // Exibir o nome do candidato logado
+$codigo_emp = $_SESSION["cod_empresa"];
+
+// Consulta SQL para obter o nome do candidato
+$sql = "SELECT * FROM tb_empresas WHERE cod_empresa = '$codigo_emp'";
+$result = $conexao->query($sql);
+
+if ($result->num_rows == 1) {
+    $row = $result->fetch_assoc();
+    $nome_emp = $row["nome_emp"];
+}
 
 $mensagensErro = array();
 
@@ -9,13 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $tipo_vaga = mysqli_real_escape_string($conexao, $_POST['tipo_vaga']);
   $descricao_vaga = mysqli_real_escape_string($conexao, $_POST['descricao_vaga']);
   $modalidade = mysqli_real_escape_string($conexao, $_POST['modalidade']);
-  $ativo = mysqli_real_escape_string($conexao, $_POST['ativo']);
+  
+
 
   // Valide os erros de formulário (adicionar validações conforme necessário)
 
   // Consulta para inserir os dados da vaga no banco de dados
-  $sql = "INSERT INTO tb_vagas (cod_empresa, salario, tipo_vaga, descricao_vaga, modalidade, ativo) 
-          VALUES ('$empresa', '$salario', '$tipo_vaga', '$descricao_vaga', '$modalidade', '$ativo')";
+  $sql = "INSERT INTO tb_vagas (cod_empresa, salario, tipo_vaga, descricao_vaga, modalidade, nome_empresa) 
+          VALUES ('$codigo_emp', '$salario', '$tipo_vaga', '$descricao_vaga', '$modalidade', '$empresa')";
 
   if (mysqli_query($conexao, $sql)) {
     $sucesso = "Cadastro da vaga realizado com sucesso!";
@@ -23,6 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $mensagensErro[] = "Erro na inserção da vaga: " . mysqli_error($conexao);
   }
+}
+}
+else{
+  header('Location: teladeescolhalogin.php');
 }
 ?>
 
@@ -37,10 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #DCDCDC; 
-      height: 100vh; 
-      font-family: 'Jost', sans-serif;
       padding-top: 50px;
+      background-color: #DCDCDC;
+      font-family: 'Jost', sans-serif;
     }
 
     form {
@@ -51,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       border-radius: 5px;
       padding-left: 20px;
       padding-right: 25px;
+      padding-bottom: 25px;
       
     }
 
@@ -136,21 +156,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-  <form action="processar_cadastro_vaga.php" method="POST">
+  <form action="telavagas.php" method="POST">
     <h1>Cadastre uma Vaga</h1>
 
     <label for="empresa">Empresa:</label>
-    <select id="empresa" name="empresa" required>
-        
-      <?php
-      session_start(); // Inicia a sessão para acessar as variáveis de sessão, no caso acessar o código da empresa e deixar salvo 
-      if (isset($_SESSION['cod_empresa'])) {
-        $cod_empresa = $_SESSION['cod_empresa'];
-        // Adicione uma opção selecionada com o código da empresa
-        echo "<option value=\"$cod_empresa\" selected>$cod_empresa</option>";
-      }
-      ?>
-    </select>
+    <input type="text" name="empresa" value="<?php echo $nome_emp?>" readonly>
 
     <label for="salario">Salário:</label>
     <input type="text" id="salario" name="salario" required>
@@ -170,11 +180,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <option value="Online">Online</option>
     </select>
 
-    <label for="ativo">Status de Ativação:</label>
-    <select id="ativo" name="ativo" required>
-      <option value="S">Ativo</option>
-      <option value="N">Inativo</option>
-    </select>
 
     <!-- Estiliza onde mostra as mensagens de erro -->
     <div>
@@ -188,6 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <button class="button" type="submit">Cadastrar Vaga</button>
+    <br>
   </form>
 </body>
 

@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <form action="telacadempresa.php" method="POST">
     <h1>Cadastre-se</h1>
 
-    <label for="nome">Nome:</label>
+    <label for="nome">Nome da Empresa:</label>
     <input type="text" id="nome" name="nome" required>
 
     <label for="endereco">Endereço:</label>
